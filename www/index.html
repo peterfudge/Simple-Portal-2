@@ -5,11 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>My App</title>
+    <title>Cosmo Scanner Test</title>
     <!-- Path to Framework7 Library CSS-->
     <link rel="stylesheet" href="css/framework7.min.css">
     <!-- Path to your custom app styles-->
     <link rel="stylesheet" href="css/my-app.css">
+    <script language="JavaScript" type="text/javascript" src="cordova-2.2.0.js"></script>
+        <script language="JavaScript" type="text/javascript" src="ScannerLib-Linea-2.0.0.js"></script>
+        <script language="JavaScript" type="text/javascript">
+          Device = new ScannerDevice({
+                barcodeData: function (data, type){
+                  log('Barcode Read: "'+data+'", "'+type+'"');
+                },
+                magneticCardData: function (track1, track2, track3){
+                    log('Card Read "'+track1+'", "'+track2+'", "'+track3+'"');
+                },
+                magneticCardRawData: function (data){
+                    log('Card Read "'+data+'"');
+                },
+                buttonPressed: function (){
+                    log('Button Pressed');
+                },
+                buttonReleased: function (){
+                  log('Button Released');
+                },
+                connectionState: function (state){
+                    log('Connection State changed to: '+state);
+                }
+            });
+          ScannerDevice.registerListener(Device);
+            function log(msg){
+                if(!document.getElementById('logData').innerHTML)
+                document.getElementById('logData').innerHTML = msg;
+                else
+                document.getElementById('logData').innerHTML += "<br />"+msg;
+            }
+            function playMerryHadALittleLamb(){
+                var sounds = [3,2,1,2,3,3,3,2,2,2,3,3,3,3,2,1,2,3,3,3,3,2,3,2,1];
+                var position = 0;
+                var interval = setInterval(function (){
+                    if(position >= sounds.length){
+                        clearInterval(interval);
+                        return;
+                    }
+                    Device.playSound([sounds[position] * 500, 250]);
+                    position++;
+                }, 250);
+            }
+            </script>
   </head>
   <body>
     <!-- Status bar overlay for fullscreen mode-->
