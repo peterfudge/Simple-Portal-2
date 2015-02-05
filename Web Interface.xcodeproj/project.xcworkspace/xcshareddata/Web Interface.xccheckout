@@ -10,31 +10,31 @@
 	<string>Web Interface</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>39355922-4F8E-4ED3-AB9D-8270D27FCB06</key>
-		<string>https://github.com/starin/Simple-Portal-2.git</string>
+		<key>EDBA5C55A4CC49A2989F352A18E61539024CE9F0</key>
+		<string>https://github.com/peterfudge/scantest.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Web Interface.xcodeproj/project.xcworkspace</string>
+	<string>Web Interface.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>39355922-4F8E-4ED3-AB9D-8270D27FCB06</key>
+		<key>EDBA5C55A4CC49A2989F352A18E61539024CE9F0</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/starin/Simple-Portal-2.git</string>
+	<string>https://github.com/peterfudge/scantest.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>39355922-4F8E-4ED3-AB9D-8270D27FCB06</string>
+	<string>EDBA5C55A4CC49A2989F352A18E61539024CE9F0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>39355922-4F8E-4ED3-AB9D-8270D27FCB06</string>
+			<string>EDBA5C55A4CC49A2989F352A18E61539024CE9F0</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Simple-Portal-2</string>
+			<string>scantest</string>
 		</dict>
 	</array>
 </dict>
