@@ -1,146 +1,170 @@
 <!DOCTYPE html>
+<!--(if target dist)>
+{{banner}}
+<!(endif)-->
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Cosmo Scanner Test</title>
-    <!-- Path to Framework7 Library CSS-->
-    <link rel="stylesheet" href="css/framework7.min.css">
-    <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="css/my-app.css">
-    <script language="JavaScript" type="text/javascript" src="cordova-2.2.0.js"></script>
-        <script language="JavaScript" type="text/javascript" src="ScannerLib-Linea-2.0.0.js"></script>
-        <script language="JavaScript" type="text/javascript">
-          Device = new ScannerDevice({
-                barcodeData: function (data, type){
-                  log('Barcode Read: "'+data+'", "'+type+'"');
-                },
-                magneticCardData: function (track1, track2, track3){
-                    log('Card Read "'+track1+'", "'+track2+'", "'+track3+'"');
-                },
-                magneticCardRawData: function (data){
-                    log('Card Read "'+data+'"');
-                },
-                buttonPressed: function (){
-                    log('Button Pressed');
-                },
-                buttonReleased: function (){
-                  log('Button Released');
-                },
-                connectionState: function (state){
-                    log('Connection State changed to: '+state);
-                }
-            });
-          ScannerDevice.registerListener(Device);
-            function log(msg){
-                if(!document.getElementById('logData').innerHTML)
-                document.getElementById('logData').innerHTML = msg;
-                else
-                document.getElementById('logData').innerHTML += "<br />"+msg;
-            }
-            function playMerryHadALittleLamb(){
-                var sounds = [3,2,1,2,3,3,3,2,2,2,3,3,3,3,2,1,2,3,3,3,3,2,3,2,1];
-                var position = 0;
-                var interval = setInterval(function (){
-                    if(position >= sounds.length){
-                        clearInterval(interval);
-                        return;
-                    }
-                    Device.playSound([sounds[position] * 500, 250]);
-                    position++;
-                }, 250);
-            }
-            </script>
+    <title>HiApp</title>
+    
+    <!--(if target dev)><!-->
+    <link rel="stylesheet" href="style/css/app.css">
+    <!--<!(endif)-->
+    
+    <!--(if target dist)>
+      <link rel="stylesheet" href="style/css/hiapp.min.css?v={{rlsdate}}">
+    <!(endif)-->
+
+    <!--(if target dev)><!-->
+      <script type="text/javascript">
+          var $CONFIG = {};
+          $CONFIG['version'] = 'Test';
+          $CONFIG['release_time'] = 'Test';
+      </script>
+    <!--<!(endif)-->
+
+    <!--(if target dist)>
+    <script type="text/javascript">
+        var $CONFIG = {};
+        $CONFIG['version'] = '{{version}}';
+        $CONFIG['release_time'] = '{{rlsdate2}}';
+    </script>
+    <!(endif)-->
   </head>
   <body>
-    <!-- Status bar overlay for fullscreen mode-->
-    <div class="statusbar-overlay"></div>
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-      <div class="content-block">
-        <p>Left panel content goes here</p>
-      </div>
-    </div>
-    <!-- Right panel with cover effect-->
-    <div class="panel panel-right panel-cover">
-      <div class="content-block">
-        <p>Right panel content goes here</p>
-      </div>
-    </div>
-    <!-- Views-->
-    <div class="views">
-      <!-- Your main view, should have "view-main" class-->
-      <div class="view view-main">
-        <!-- Top Navbar-->
-        <div class="navbar">
-          <div class="navbar-inner">
-            <!-- We have home navbar without left link-->
-            <div class="center sliding">Awesome App</div>
-            <div class="right">
-              <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+        <div class="statusbar-overlay"></div>
+        <div class="panel-overlay"></div>
+
+        <div class="views tabs toolbar-through">
+            <div id="ourView" class="view view-main tab active">
+               <div class="navbar navbar-hidden">
+                 <div class="navbar-inner">
+
+                   <div class="left">
+                       <a href="#"  class="refresh-click link">
+                           <i class="icon ios7-reload"></i>
+                       </a>
+                   </div>
+
+                   <div class="center sliding i18n" data-i18n="app.name">{{i}}</div>
+
+                   <div class="right">
+                       <a href="#" class="open-send-popup link icon-only">
+                           <i class="icon ios7-compose-outline"></i>
+                       </a>
+                   </div>
+
+                 </div>
+               </div>
+               <div class="pages navbar-through">
+                 <div data-page="ourView" class="page no-swipeback">
+                   <div data-distance="50" class="page-content pull-to-refresh-content infinite-scroll">
+                     <div class="pull-to-refresh-layer">
+                       <div class="preloader"></div>
+                       <div class="pull-to-refresh-arrow"></div>
+                     </div>
+                     <div class="list-block media-list">
+                       <div class="load-result"></div>
+                       <ul class="time-line-content">
+
+                       </ul>
+
+                     </div>
+                   </div>
+                 </div>
+               </div>
             </div>
-          </div>
-        </div>
-        <!-- Pages, because we need fixed-through navbar and toolbar, it has additional appropriate classes-->
-        <div class="pages navbar-through toolbar-through">
-          <!-- Page, data-page contains page name-->
-          <div data-page="index" class="page">
-            <!-- Scrollable page content-->
-            <div class="page-content">
-              <div class="content-block-title">Welcome To My Awesome App</div>
-              <div class="content-block">
-                <div class="content-block-inner">
-                  <p>Couple of worlds here because my app is so awesome!</p>
-                  <p>Duis sed erat ac eros ultrices pharetra id ut tellus. Praesent rhoncus enim ornare ipsum aliquet ultricies. Pellentesque sodales erat quis elementum sagittis.</p>
+
+            <div id="contatcView" class="view tab">
+
+                <div class="navbar">
+                    <div class="navbar-inner">
+
+                        <div class="center sliding i18n" data-i18n="app.name"></div>
+
+                    </div>
                 </div>
-              </div>
-              <div class="content-block-title">What about simple navigation?</div>
-              <div class="list-block">
-                <ul>
-                  <li><a href="about.html" class="item-link">
-                      <div class="item-content">
-                        <div class="item-inner"> 
-                          <div class="item-title">About</div>
+
+                <div class="pages navbar-through">
+                    <div data-page="contatcView" class="page contact-page">
+                        <!-- Search bar -->
+                        <form class="searchbar" data-search-list=".contacts-list" data-search-in=".item-title">
+                            <div class="searchbar-input">
+                                <input type="search" class="i18n" data-i18n="[placeholder]global.search">
+                                <a href="#" class="searchbar-clear"></a>
+                            </div>
+                            <a href="#" class="searchbar-cancel i18n" data-i18n="global.cancel"></a>
+                        </form>
+
+                        <!-- Search bar overlay-->
+                        <div class="searchbar-overlay"></div>
+
+                        <div class="page-content">
+                            <div class="list-block media-list contacts-list searchbar-found">
+                                <div class="list-group">
+                                    <ul></ul>
+                                </div>
+                            </div>
+                            <div class="content-block searchbar-not-found i18n" data-i18n="index.nothing_found" >
+                            </div>
                         </div>
-                      </div></a></li>
-                  <li><a href="services.html" class="item-link">
-                      <div class="item-content"> 
-                        <div class="item-inner">
-                          <div class="item-title">Services</div>
-                        </div>
-                      </div></a></li>
-                  <li><a href="form.html" class="item-link">
-                      <div class="item-content"> 
-                        <div class="item-inner">
-                          <div class="item-title">Form</div>
-                        </div>
-                      </div></a></li>
-                </ul>
-              </div>
-              <div class="content-block-title">Side panels</div>
-              <div class="content-block">
-                <div class="row">
-                  <div class="col-50"><a href="#" data-panel="left" class="button open-panel">Left Panel</a></div>
-                  <div class="col-50"><a href="#" data-panel="right" class="button open-panel">Right Panel</a></div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
+
+            <div id="settingView" class="view tab">
+                <div class="navbar">
+                    <div class="navbar-inner">
+
+                    <div class="center sliding i18n" data-i18n="app.name"></div>
+
+                    </div>
+                </div>
+                <div class="pages navbar-through">
+                    <div data-page="setting" class="page">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- toolbar start -->
+            <div class="toolbar tabbar tabbar-labels toolbar-hidden">
+                <div class="toolbar-inner">
+                    <a href="#ourView" class="tab-link active">
+                        <i class="icon ios7-home-outline"></i>
+                        <span class="tabbar-label i18n" data-i18n="index.tweet"></span>
+                    </a>
+
+                    <a href="#contatcView" class="tab-link">
+                        <i class="icon ios7-chatbubble-outline"></i>
+                        <span class="tabbar-label i18n" data-i18n="index.contacts"></span>
+                    </a>
+
+                    <a href="#settingView" class="tab-link">
+                        <i class="icon ios7-gear-outline">
+                            <!-- <span class="badge badge-red">4</span> -->
+                        </i>
+                        <span class="tabbar-label i18n" data-i18n="index.setting"></span>
+                    </a>
+                </div>
+            </div>
+            <!-- toolbar end -->
         </div>
-        <div id="logData" style="width:100%;height:300px;overflow:auto;background-color:#EEEEEE"></div>
-        <!-- Bottom Toolbar-->
-        <div class="toolbar">
-          <div class="toolbar-inner"><a href="#" class="link">Link 1</a><a href="#" class="link">Link 2</a></div>
-        </div>
-      </div>
-    </div>
-    <!-- Path to Framework7 Library JS-->
-    <script type="text/javascript" src="js/framework7.min.js"></script>
-    <!-- Path to your app js-->
-    <script type="text/javascript" src="js/my-app.js"></script>
+
+        <!-- Please ignore the 404 error when you are not running under PhoneGap environment or delete it. -->
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <!--(if target dev)><!-->
+        <script data-main="script/main" src="vendors/require/require.js"></script>
+        <!--<!(endif)-->
+        
+        <!--(if target dist)>
+          <script data-main="script/hiapp.min" src="script/require.min.js?v={{rlsdate}}"></script>
+        <!(endif)-->
+
   </body>
+  
 </html>
