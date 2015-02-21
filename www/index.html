@@ -16,6 +16,7 @@
           Device = new ScannerDevice({
                 barcodeData: function (data, type){
                   log('Barcode Read: "'+data+'", "'+type+'"');
+                  alert('Barcode Read: "'+data+'", "'+type+'"');
                 },
                 magneticCardData: function (track1, track2, track3){
                     log('Card Read "'+track1+'", "'+track2+'", "'+track3+'"');
@@ -79,7 +80,7 @@
         <div class="navbar">
           <div class="navbar-inner">
             <!-- We have home navbar without left link-->
-            <div class="center sliding">Awesome App</div>
+            <div class="center sliding">Cosmo Music App</div>
             <div class="right">
               <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
             </div>
