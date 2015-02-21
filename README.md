@@ -1,4 +1,4 @@
-Simple-Portal-2
+Cosmo Music Customer Service App
 ===============
 
 Please use: https://github.com/AlladaInc/LineaDevice
