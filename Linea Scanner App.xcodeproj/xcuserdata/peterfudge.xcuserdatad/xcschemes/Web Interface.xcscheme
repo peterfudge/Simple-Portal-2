@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4D16F9CE1604031100B87399"
                BuildableName = "Web Interface.app"
-               BlueprintName = "Web Interface"
-               ReferencedContainer = "container:Web Interface.xcodeproj">
+               BlueprintName = "Linea Scanner App"
+               ReferencedContainer = "container:Linea Scanner App.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D16F9CE1604031100B87399"
             BuildableName = "Web Interface.app"
-            BlueprintName = "Web Interface"
-            ReferencedContainer = "container:Web Interface.xcodeproj">
+            BlueprintName = "Linea Scanner App"
+            ReferencedContainer = "container:Linea Scanner App.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -54,8 +54,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D16F9CE1604031100B87399"
             BuildableName = "Web Interface.app"
-            BlueprintName = "Web Interface"
-            ReferencedContainer = "container:Web Interface.xcodeproj">
+            BlueprintName = "Linea Scanner App"
+            ReferencedContainer = "container:Linea Scanner App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -73,8 +73,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D16F9CE1604031100B87399"
             BuildableName = "Web Interface.app"
-            BlueprintName = "Web Interface"
-            ReferencedContainer = "container:Web Interface.xcodeproj">
+            BlueprintName = "Linea Scanner App"
+            ReferencedContainer = "container:Linea Scanner App.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
